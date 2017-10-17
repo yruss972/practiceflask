@@ -1,0 +1,18 @@
+{% import 'ue.html' as ue %}
+{% import 'ue_navigation.html' as ue_nav  %}
+<html>
+  <head>
+    {% if title and route  %}
+    <title>{{ title }} -  {{ route }}</title>
+    {% else %}
+    <title></title>
+    {% endif %}
+    {{ ue.include_css() }}
+  </head>
+  <body>
+      {{ ue_nav.navbar1({'innerHTML':title,'href':'#'},navitems) }}
+      <hr>
+      {% block content %}{% endblock %}
+  </body>
+  {{ ue.include_js() }}
+</html>
